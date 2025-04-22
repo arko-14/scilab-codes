@@ -1,0 +1,16 @@
+clc;
+clear all;
+Vs =15;
+del_Id = 10;
+del_Q = 150;
+R = 56;
+C1 = 0.5;
+ns =10;
+Vds_max = (( Vs*10^3)+((ns-1)*R*10^3*del_Id*10^-3))/ns;
+DRF=1-((Vs*10^3)/(ns*Vds_max));
+Vdt_max = ((Vs*10^3)+(((ns-1)*del_Q*10^-6)/(C1*10^-6)))/ns;
+DRF1 = 1-((Vs*10^3)/(ns*Vdt_max));
+printf("\n\t(a). The maximum steady state voltage sharing Vde(max) is %0.0fV", Vds_max);
+printf("\n\t(b). The steady state derating factor is DRF is % 0.2fpercent",DRF*100);
+printf("\n\t(c). The maximum transient voltage sharing Vdt(max) is %0.0fV",Vdt_max);
+printf("\n\t(d). The transient derating factor is DRF is %0.2f percent",DRF1*100);
